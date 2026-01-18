@@ -1,20 +1,28 @@
-// components/ui/Card.tsx
+"use client";
+
 import { cn } from "@/lib/utils";
-import { HTMLMotionProps, motion } from "framer-motion";
+import { HTMLAttributes, forwardRef } from "react";
 
-type CardProps = HTMLMotionProps<"div">;
+type CardProps = HTMLAttributes<HTMLDivElement> & {
+  hover?: boolean;
+};
 
-export function Card({ className, children, ...props }: CardProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className={cn("p-6 rounded-xl shadow-md bg-[#1A221E]", className)}
-      {...props}
-    >
-      {children}
-    </motion.div>
-  );
-}
+export const Card = forwardRef<HTMLDivElement, CardProps>(
+  ({ className, children, hover = true, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "p-6 rounded-xl bg-white shadow-md border border-[#DBE89C] transition-all duration-300",
+          hover && "hover:shadow-xl hover:-translate-y-1",
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  }
+);
+
+Card.displayName = "Card";
