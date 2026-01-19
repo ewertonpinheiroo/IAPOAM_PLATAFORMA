@@ -4,8 +4,8 @@ import { Carousel } from "@/components/Carousel";
 import { Institutional } from "@/components/Institutional";
 import { OuvidoriaTeaser } from "@/components/OuvidoriaTeaser";
 import AreasDeAtuacao from "@/components/AreasDeAtuacao";
-import Statistics from "@/components/Statistics"; // ← REMOVIDO as chaves {}
-import DonationCTA from "@/components/DonationCTA"; // ← NOVO COMPONENTE
+import Statistics from "@/components/Statistics";
+import DonationCTA from "@/components/DonationCTA";
 import { Transparency } from "@/components/Transparency";
 import { Footer } from "@/components/Footer";
 
@@ -20,7 +20,7 @@ export default function Home() {
         <OuvidoriaTeaser />
         <AreasDeAtuacao />
         <Statistics />
-        <DonationCTA /> {/* ← NOVA SEÇÃO DE DOAÇÕES */}
+        <DonationCTA />
         <Transparency />
       </main>
       <Footer />
