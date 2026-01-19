@@ -1,9 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import Link from "next/link";
-import { ArrowRight, Heart, Shield, Leaf } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export function Hero() {
@@ -13,25 +10,17 @@ export function Hero() {
     setIsVisible(true);
   }, []);
 
-  const features = [
-    {
-      icon: <Heart className="w-5 h-5" />,
-      text: "Inclusão Social",
-    },
-    {
-      icon: <Shield className="w-5 h-5" />,
-      text: "Defesa de Direitos",
-    },
-    {
-      icon: <Leaf className="w-5 h-5" />,
-      text: "Sustentabilidade",
-    },
+  const stats = [
+    { number: "35+", label: "Etnias" },
+    { number: "253", label: "Comunidades" },
+    { number: "29.506", label: "Indígenas" },
+    { number: "15+", label: "Anos" },
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 pt-16">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0 opacity-20 dark:opacity-10">
         <video
           autoPlay
           muted
@@ -41,47 +30,44 @@ export function Hero() {
         >
           <source src="/video/bg_video.mp4" type="video/mp4" />
         </video>
-        {/* Overlay gradiente mais sofisticado */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#044217]/95 via-[#044217]/85 to-[#044217]/75"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#044217] via-transparent to-transparent"></div>
-      </div>
-
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 z-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#62B67F] rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#DBE89C] rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#044217]/20 to-[#62B67F]/10 dark:from-gray-900/50 dark:to-gray-950/50"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-32">
-        <div className="max-w-5xl mx-auto text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="text-center max-w-4xl mx-auto">
           {/* Badge */}
           <div
             className={`transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <Badge
-              variant="success"
-              className="mb-6 bg-[#62B67F]/20 backdrop-blur-sm border border-[#62B67F]/30 text-white px-6 py-2 text-sm md:text-base"
-            >
-              Desde 2011 transformando vidas na Amazônia
-            </Badge>
+            <div className="inline-flex items-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full mb-8 shadow-sm">
+              <div className="w-2 h-2 bg-[#62B67F] rounded-full mr-2 animate-pulse"></div>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Desde 2011 transformando vidas na Amazônia
+              </span>
+            </div>
           </div>
 
           {/* Main Heading */}
           <h1
-            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight transition-all duration-1000 delay-200 ${
+            className={`text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight transition-all duration-1000 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Apoio aos Povos
-            <span className="block text-[#DBE89C] mt-2">Originários da Amazônia</span>
+            <span className="text-gray-900 dark:text-white">Apoio aos</span>
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#044217] to-[#62B67F]">
+              Povos Originários
+            </span>
+            <br />
+            <span className="text-gray-900 dark:text-white">da Amazônia</span>
           </h1>
 
           {/* Subtitle */}
           <p
-            className={`text-lg sm:text-xl md:text-2xl text-[#E5EEE2] mb-8 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
+            className={`text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -89,68 +75,54 @@ export function Hero() {
             quilombolas através de ações concretas e transformadoras.
           </p>
 
-          {/* Features Pills */}
-          <div
-            className={`flex flex-wrap justify-center gap-4 mb-10 transition-all duration-1000 delay-600 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-3 text-white hover:bg-white/20 transition-all duration-300"
-              >
-                {feature.icon}
-                <span className="font-medium">{feature.text}</span>
-              </div>
-            ))}
-          </div>
-
           {/* CTA Buttons */}
           <div
-            className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 delay-800 ${
+            className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 transition-all duration-1000 delay-600 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <Link href="/doacoes">
-              <Button
-                variant="primary"
-                className="text-base md:text-lg px-8 py-4 bg-[#62B67F] hover:bg-[#62B67F]/90 shadow-2xl hover:shadow-[#62B67F]/50 group min-w-[200px]"
+            <Link
+              href="/doacoes"
+              className="group w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#044217] to-[#62B67F] text-white font-medium rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center"
+            >
+              Fazer uma Doação
+              <svg
+                className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                Doe Agora
-                <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
             </Link>
-            <Link href="/quem-somos">
-              <Button
-                variant="outline"
-                className="text-base md:text-lg px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-[#044217] shadow-lg min-w-[200px]"
-              >
-                Conheça Nosso Trabalho
-              </Button>
+            <Link
+              href="/quem-somos"
+              className="w-full sm:w-auto px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-medium rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-[#044217] dark:hover:border-[#62B67F] hover:shadow-lg transition-all duration-300"
+            >
+              Conheça Nossa História
             </Link>
           </div>
 
-          {/* Stats Bar */}
+          {/* Stats */}
           <div
-            className={`mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto transition-all duration-1000 delay-1000 ${
+            className={`grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto transition-all duration-1000 delay-800 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            {[
-              { number: "35+", label: "Etnias Atendidas" },
-              { number: "253", label: "Comunidades" },
-              { number: "29.506", label: "Indígenas em Manaus" },
-              { number: "15+", label: "Anos de História" },
-            ].map((stat, index) => (
+            {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:border-[#62B67F] dark:hover:border-[#62B67F] hover:shadow-lg transition-all duration-300"
               >
-                <div className="text-3xl md:text-4xl font-bold text-[#DBE89C] mb-2">
+                <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#044217] to-[#62B67F] mb-2">
                   {stat.number}
                 </div>
-                <div className="text-sm md:text-base text-white/90 font-medium">
+                <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
                   {stat.label}
                 </div>
               </div>
@@ -161,27 +133,16 @@ export function Hero() {
 
       {/* Scroll Indicator */}
       <div
-        className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-10 transition-all duration-1000 delay-1200 ${
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-10 transition-all duration-1000 delay-1000 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="flex flex-col items-center gap-2 text-white/80">
-          <span className="text-sm font-medium">Role para explorar</span>
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
-            <div className="w-1.5 h-3 bg-white/60 rounded-full animate-bounce"></div>
+        <div className="flex flex-col items-center gap-2 text-gray-600 dark:text-gray-400">
+          <span className="text-xs font-medium uppercase tracking-wider">Explorar</span>
+          <div className="w-6 h-10 border-2 border-gray-300 dark:border-gray-600 rounded-full flex items-start justify-center p-2">
+            <div className="w-1.5 h-3 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"></div>
           </div>
         </div>
-      </div>
-
-      {/* Decorative bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0 z-0">
-        <svg
-          className="w-full h-24 fill-[#E5EEE2]"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
-        </svg>
       </div>
     </section>
   );

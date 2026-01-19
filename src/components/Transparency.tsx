@@ -1,20 +1,5 @@
 "use client";
 
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { 
-  FileText, 
-  Download, 
-  Shield, 
-  Eye,
-  CheckCircle2,
-  BarChart3,
-  FileCheck,
-  Award,
-  ExternalLink,
-  Calendar
-} from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -22,58 +7,50 @@ const documents = [
   {
     title: "Relatório Anual 2024",
     description: "Prestação de contas completa do ano fiscal",
-    icon: <FileText className="w-6 h-6" />,
+    category: "Relatórios",
     size: "2.4 MB",
-    date: "Janeiro 2025",
-    category: "Relatórios"
+    date: "Janeiro 2025"
   },
   {
     title: "Demonstrativo Financeiro",
     description: "Balanço patrimonial e demonstração de resultados",
-    icon: <BarChart3 className="w-6 h-6" />,
+    category: "Financeiro",
     size: "1.8 MB",
-    date: "Dezembro 2024",
-    category: "Financeiro"
+    date: "Dezembro 2024"
   },
   {
     title: "Certificados e Títulos",
     description: "Utilidade Pública Municipal e Estadual",
-    icon: <Award className="w-6 h-6" />,
+    category: "Certificações",
     size: "956 KB",
-    date: "2024",
-    category: "Certificações"
+    date: "2024"
   },
   {
     title: "Estatuto Social",
     description: "Documento de constituição e normas",
-    icon: <FileCheck className="w-6 h-6" />,
+    category: "Institucional",
     size: "1.2 MB",
-    date: "Atualizado 2024",
-    category: "Institucional"
+    date: "Atualizado 2024"
   },
 ];
 
 const certifications = [
   {
-    icon: <Shield className="w-8 h-8" />,
     title: "Utilidade Pública Municipal",
     description: "Certificado pela Prefeitura de Manaus",
     status: "Ativo"
   },
   {
-    icon: <Shield className="w-8 h-8" />,
     title: "Utilidade Pública Estadual",
     description: "Certificado pelo Governo do Amazonas",
     status: "Ativo"
   },
   {
-    icon: <CheckCircle2 className="w-8 h-8" />,
     title: "CNPJ Regular",
     description: "Situação cadastral ativa",
     status: "Regular"
   },
   {
-    icon: <Eye className="w-8 h-8" />,
     title: "Prestação de Contas",
     description: "Relatórios públicos e auditados",
     status: "Em dia"
@@ -84,108 +61,102 @@ export function Transparency() {
   const [hoveredDoc, setHoveredDoc] = useState<number | null>(null);
 
   return (
-    <section id="transparency" className="py-24 bg-gradient-to-b from-white to-[#E5EEE2] relative overflow-hidden">
-      {/* Decorative Background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#044217] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#62B67F] rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Shield Pattern Background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10 L30 0 L20 5 L30 10 L40 5 L30 0' fill='%23044217' opacity='0.1'/%3E%3C/svg%3E")`,
-          backgroundSize: '60px 60px'
-        }}></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="transparency" className="py-20 bg-white dark:bg-gray-950">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Header */}
         <div className="text-center mb-16">
-          <Badge variant="success" className="mb-4">
-            Compromisso com a Transparência
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#044217] mb-4">
+          <div className="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full mb-4">
+            <svg className="w-4 h-4 text-[#62B67F] mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Compromisso com a Transparência
+            </span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Transparência Total
           </h2>
-          <div className="w-24 h-1 bg-[#62B67F] mx-auto rounded-full mb-6"></div>
-          <p className="text-lg text-[#044217]/70 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Acreditamos que a transparência é fundamental para construir confiança. Todos os nossos documentos, certificações e relatórios estão disponíveis para consulta pública.
           </p>
         </div>
 
-        {/* CNPJ Highlight Banner */}
+        {/* CNPJ Highlight */}
         <div className="max-w-4xl mx-auto mb-16">
-          <div className="bg-gradient-to-r from-[#044217] to-[#044217]/90 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#62B67F]/20 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#DBE89C]/20 rounded-full blur-3xl"></div>
-            
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="bg-gradient-to-br from-[#044217] to-[#62B67F] rounded-3xl p-8 lg:p-10 shadow-2xl">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
               <div className="text-white">
-                <div className="flex items-center gap-3 mb-3">
-                  <Shield className="w-8 h-8 text-[#62B67F]" />
+                <div className="flex items-center gap-3 mb-4">
+                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
                   <h3 className="text-2xl font-bold">Informações Institucionais</h3>
                 </div>
-                <div className="space-y-2">
-                  <p className="text-white/90"><strong>CNPJ:</strong> 13.955.659/0001-43</p>
-                  <p className="text-white/90"><strong>Fundação:</strong> 15 de fevereiro de 2011</p>
-                  <p className="text-white/90"><strong>Natureza:</strong> Organização Apartidária e Não Religiosa</p>
+                <div className="space-y-2 text-white/90">
+                  <p><span className="font-semibold">CNPJ:</span> 13.955.659/0001-43</p>
+                  <p><span className="font-semibold">Fundação:</span> 15 de fevereiro de 2011</p>
+                  <p><span className="font-semibold">Natureza:</span> Organização Apartidária e Não Religiosa</p>
                 </div>
               </div>
-              <div className="flex-shrink-0">
-                <Link href="https://www.gov.br/receitafederal/pt-br" target="_blank">
-                  <Button variant="secondary" className="flex items-center gap-2">
-                    Verificar CNPJ
-                    <ExternalLink className="w-4 h-4" />
-                  </Button>
-                </Link>
-              </div>
+              <Link
+                href="https://www.gov.br/receitafederal/pt-br"
+                target="_blank"
+                className="flex-shrink-0 px-6 py-3 bg-white text-[#044217] font-semibold rounded-xl hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+              >
+                Verificar CNPJ
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
 
         {/* Certifications Grid */}
-        <div className="max-w-6xl mx-auto mb-16">
-          <h3 className="text-3xl font-bold text-[#044217] text-center mb-8">
+        <div className="mb-16">
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-10">
             Certificações e Reconhecimentos
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {certifications.map((cert, index) => (
-              <Card 
+              <div
                 key={index}
-                className="bg-white border-2 border-[#DBE89C] hover:border-[#62B67F] text-center group"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:border-[#62B67F] dark:hover:border-[#62B67F] hover:shadow-xl transition-all duration-300 text-center"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#044217] to-[#044217]/80 text-white rounded-2xl shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-500 mb-4">
-                  {cert.icon}
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#044217] to-[#62B67F] rounded-2xl text-white mb-4">
+                  <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
                 </div>
-                <h4 className="text-lg font-bold text-[#044217] mb-2 group-hover:text-[#62B67F] transition-colors">
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                   {cert.title}
                 </h4>
-                <p className="text-sm text-[#044217]/70 mb-3">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
                   {cert.description}
                 </p>
-                <Badge 
-                  variant="success" 
-                  className="text-xs"
-                >
+                <span className="inline-block px-3 py-1 bg-[#62B67F]/10 dark:bg-[#62B67F]/20 text-[#044217] dark:text-[#62B67F] text-xs font-medium rounded-full">
                   {cert.status}
-                </Badge>
-              </Card>
+                </span>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Documents Section */}
-        <div className="max-w-6xl mx-auto mb-16">
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-3xl font-bold text-[#044217]">
+        <div className="mb-16">
+          <div className="flex items-center justify-between mb-10">
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
               Documentos Disponíveis
             </h3>
-            <Link href="/transparencia">
-              <Button variant="outline" className="flex items-center gap-2">
-                Ver Todos
-                <ExternalLink className="w-4 h-4" />
-              </Button>
+            <Link
+              href="/transparencia"
+              className="px-4 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium rounded-xl border border-gray-200 dark:border-gray-700 hover:border-[#62B67F] dark:hover:border-[#62B67F] transition-all duration-300 flex items-center gap-2"
+            >
+              Ver Todos
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
             </Link>
           </div>
 
@@ -195,103 +166,102 @@ export function Transparency() {
                 key={index}
                 onMouseEnter={() => setHoveredDoc(index)}
                 onMouseLeave={() => setHoveredDoc(null)}
-                className="group"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:border-[#62B67F] dark:hover:border-[#62B67F] hover:shadow-xl transition-all duration-300"
               >
-                <Card className={`bg-white border-2 transition-all duration-300 ${
-                  hoveredDoc === index 
-                    ? 'border-[#62B67F] shadow-xl scale-105' 
-                    : 'border-[#DBE89C]'
-                }`}>
-                  <div className="flex items-start gap-4">
-                    {/* Icon */}
-                    <div className={`flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#044217] to-[#044217]/80 text-white rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      {doc.icon}
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1">
-                      <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <h4 className="text-lg font-bold text-[#044217] group-hover:text-[#62B67F] transition-colors">
-                            {doc.title}
-                          </h4>
-                          <Badge variant="warning" className="text-xs mt-1">
-                            {doc.category}
-                          </Badge>
-                        </div>
-                      </div>
-                      <p className="text-sm text-[#044217]/70 mb-3">
-                        {doc.description}
-                      </p>
-                      <div className="flex items-center justify-between text-xs text-[#044217]/60">
-                        <div className="flex items-center gap-4">
-                          <span className="flex items-center gap-1">
-                            <Calendar className="w-3 h-3" />
-                            {doc.date}
-                          </span>
-                          <span>{doc.size}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Download Button */}
-                    <button className="flex-shrink-0 p-3 bg-[#E5EEE2] hover:bg-[#62B67F] text-[#044217] hover:text-white rounded-lg transition-all duration-300 group-hover:scale-110">
-                      <Download className="w-5 h-5" />
-                    </button>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#044217] to-[#62B67F] rounded-xl flex items-center justify-center text-white">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
                   </div>
-                </Card>
+
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                          {doc.title}
+                        </h4>
+                        <span className="inline-block px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full">
+                          {doc.category}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                      {doc.description}
+                    </p>
+                    <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500">
+                      <div className="flex items-center gap-3">
+                        <span className="flex items-center gap-1">
+                          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          {doc.date}
+                        </span>
+                        <span>{doc.size}</span>
+                      </div>
+                      <button className="p-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-[#62B67F] hover:text-white rounded-lg transition-all duration-300">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="max-w-5xl mx-auto">
-          <Card className="bg-gradient-to-br from-[#E5EEE2] to-white border-2 border-[#DBE89C] text-center relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-[#62B67F]/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#044217]/10 rounded-full blur-3xl"></div>
-            
-            <div className="relative z-10 py-8">
-              <Eye className="w-16 h-16 text-[#62B67F] mx-auto mb-6" />
-              <h3 className="text-3xl md:text-4xl font-bold text-[#044217] mb-4">
-                Portal de Transparência Completo
-              </h3>
-              <p className="text-lg text-[#044217]/70 mb-8 max-w-2xl mx-auto">
-                Acesse nosso portal completo para visualizar todos os relatórios financeiros, atas de reuniões, planos de ação e documentos institucionais.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/transparencia">
-                  <Button variant="primary" className="flex items-center gap-2">
-                    Acessar Portal Completo
-                    <ExternalLink className="w-4 h-4" />
-                  </Button>
-                </Link>
-                <Link href="/ouvidoria">
-                  <Button variant="outline" className="flex items-center gap-2">
-                    Canal de Ouvidoria
-                    <ExternalLink className="w-4 h-4" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </Card>
+        {/* CTA Card */}
+        <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-3xl p-8 lg:p-12 border border-gray-200 dark:border-gray-700 text-center shadow-xl">
+          <svg className="w-16 h-16 text-[#62B67F] mx-auto mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            Portal de Transparência Completo
+          </h3>
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+            Acesse nosso portal completo para visualizar todos os relatórios financeiros, atas de reuniões, planos de ação e documentos institucionais.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/transparencia"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#044217] to-[#62B67F] text-white font-semibold rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              Acessar Portal Completo
+              <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <Link
+              href="/ouvidoria"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-[#62B67F] dark:hover:border-[#62B67F] transition-all duration-300"
+            >
+              Canal de Ouvidoria
+            </Link>
+          </div>
         </div>
 
-        {/* Trust Indicators */}
-        <div className="mt-16 max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div className="bg-white rounded-2xl p-6 shadow-md border border-[#DBE89C]">
-              <div className="text-4xl font-bold text-[#044217] mb-2">100%</div>
-              <div className="text-sm text-[#044217]/70">Documentos Públicos</div>
+        {/* Trust Stats */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+            <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#044217] to-[#62B67F] mb-2">
+              100%
             </div>
-            <div className="bg-white rounded-2xl p-6 shadow-md border border-[#DBE89C]">
-              <div className="text-4xl font-bold text-[#044217] mb-2">15+</div>
-              <div className="text-sm text-[#044217]/70">Anos de Prestação de Contas</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Documentos Públicos</div>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+            <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#044217] to-[#62B67F] mb-2">
+              15+
             </div>
-            <div className="bg-white rounded-2xl p-6 shadow-md border border-[#DBE89C]">
-              <div className="text-4xl font-bold text-[#044217] mb-2">0</div>
-              <div className="text-sm text-[#044217]/70">Pendências Fiscais</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Anos de Prestação de Contas</div>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+            <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#044217] to-[#62B67F] mb-2">
+              0
             </div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Pendências Fiscais</div>
           </div>
         </div>
       </div>

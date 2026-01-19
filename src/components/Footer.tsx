@@ -2,24 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { 
-  Instagram, 
-  Facebook, 
-  Youtube, 
-  Mail, 
-  Phone, 
-  MapPin,
-  ExternalLink,
-  Heart,
-  Shield,
-  ChevronRight
-} from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { href: "/", label: "Home" },
+    { href: "/", label: "Início" },
     { href: "/quem-somos", label: "Quem Somos" },
     { href: "/o-que-fazemos", label: "O Que Fazemos" },
     { href: "/onde-atuamos", label: "Onde Atuamos" },
@@ -39,79 +27,79 @@ export function Footer() {
   ];
 
   const socialLinks = [
-    { 
-      href: "https://instagram.com/iapoam", 
-      icon: <Instagram className="w-5 h-5" />, 
+    {
+      href: "https://www.instagram.com/institutoindigenaiapoam/",
       label: "Instagram",
-      hoverColor: "hover:text-pink-500"
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      )
     },
-    { 
-      href: "https://facebook.com/iapoam", 
-      icon: <Facebook className="w-5 h-5" />, 
+    {
+      href: "https://www.facebook.com/povosindigenasiapoam",
       label: "Facebook",
-      hoverColor: "hover:text-blue-500"
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      )
     },
-    { 
-      href: "https://youtube.com/iapoam", 
-      icon: <Youtube className="w-5 h-5" />, 
+    {
+      href: "https://youtube.com/iapoam",
       label: "YouTube",
-      hoverColor: "hover:text-red-500"
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+      )
     },
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-[#044217] to-[#044217]/95 text-white relative overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-[#62B67F] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#DBE89C] rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Pattern Overlay */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E")`,
-      }}></div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <footer className="bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Main Footer Content */}
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+          
           {/* Column 1 - Logo & Description */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block mb-6">
-              <Image 
-                src="/images/logo.png" 
-                alt="Logo IAPOAM" 
-                width={180} 
-                height={70}
-                className="brightness-0 invert"
-              />
+            <Link href="/" className="inline-flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#044217] to-[#62B67F] rounded-xl flex items-center justify-center">
+                <span className="text-white font-bold text-xl">IA</span>
+              </div>
+              <span className="text-xl font-bold text-gray-900 dark:text-white">
+                IAPOAM
+              </span>
             </Link>
-            <h3 className="text-xl font-bold text-[#DBE89C] mb-3">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
               Instituto de Apoio aos Povos Originários da Amazônia
             </h3>
-            <p className="text-white/80 leading-relaxed mb-6">
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
               Desde 2011 promovendo inclusão, defesa de direitos e sustentabilidade para etnias indígenas e quilombolas da Amazônia.
             </p>
             
             {/* Certification Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2 mb-4">
-              <Shield className="w-5 h-5 text-[#62B67F]" />
-              <div className="text-sm">
-                <div className="font-semibold text-white">Utilidade Pública</div>
-                <div className="text-white/70 text-xs">Municipal e Estadual</div>
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 mb-4">
+              <svg className="w-6 h-6 text-[#62B67F]" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <div>
+                <div className="font-semibold text-gray-900 dark:text-white text-sm">Utilidade Pública</div>
+                <div className="text-xs text-gray-600 dark:text-gray-400">Municipal e Estadual</div>
               </div>
             </div>
 
             {/* CNPJ */}
-            <p className="text-sm text-white/60">
-              <strong>CNPJ:</strong> 13.955.659/0001-43
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              <span className="font-semibold">CNPJ:</span> 13.955.659/0001-43
             </p>
           </div>
 
           {/* Column 2 - Quick Links */}
           <div>
-            <h4 className="text-lg font-bold text-[#DBE89C] mb-6 flex items-center gap-2">
-              <ChevronRight className="w-5 h-5" />
+            <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-6">
               Links Rápidos
             </h4>
             <ul className="space-y-3">
@@ -119,9 +107,9 @@ export function Footer() {
                 <li key={index}>
                   <Link 
                     href={link.href} 
-                    className="text-white/80 hover:text-[#62B67F] transition-colors duration-300 flex items-center gap-2 group"
+                    className="text-gray-600 dark:text-gray-400 hover:text-[#044217] dark:hover:text-[#62B67F] transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <span className="w-1.5 h-1.5 bg-[#62B67F] rounded-full group-hover:w-2 group-hover:h-2 transition-all"></span>
+                    <span className="w-1 h-1 bg-gray-400 dark:bg-gray-600 rounded-full group-hover:w-2 group-hover:bg-[#62B67F] transition-all"></span>
                     {link.label}
                   </Link>
                 </li>
@@ -131,8 +119,7 @@ export function Footer() {
 
           {/* Column 3 - Support Links */}
           <div>
-            <h4 className="text-lg font-bold text-[#DBE89C] mb-6 flex items-center gap-2">
-              <ChevronRight className="w-5 h-5" />
+            <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-6">
               Apoie & Participe
             </h4>
             <ul className="space-y-3">
@@ -140,9 +127,9 @@ export function Footer() {
                 <li key={index}>
                   <Link 
                     href={link.href} 
-                    className="text-white/80 hover:text-[#62B67F] transition-colors duration-300 flex items-center gap-2 group"
+                    className="text-gray-600 dark:text-gray-400 hover:text-[#044217] dark:hover:text-[#62B67F] transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <span className="w-1.5 h-1.5 bg-[#62B67F] rounded-full group-hover:w-2 group-hover:h-2 transition-all"></span>
+                    <span className="w-1 h-1 bg-gray-400 dark:bg-gray-600 rounded-full group-hover:w-2 group-hover:bg-[#62B67F] transition-all"></span>
                     {link.label}
                   </Link>
                 </li>
@@ -152,8 +139,7 @@ export function Footer() {
 
           {/* Column 4 - Contact & Legal */}
           <div>
-            <h4 className="text-lg font-bold text-[#DBE89C] mb-6 flex items-center gap-2">
-              <ChevronRight className="w-5 h-5" />
+            <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-6">
               Contato
             </h4>
             <ul className="space-y-4 mb-8">
@@ -162,27 +148,34 @@ export function Footer() {
                   href="https://maps.google.com/?q=Aldeia+Uka+Anama+Manaus" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 text-white/80 hover:text-[#62B67F] transition-colors duration-300 group"
+                  className="flex items-start gap-3 text-gray-600 dark:text-gray-400 hover:text-[#044217] dark:hover:text-[#62B67F] transition-colors duration-200 group"
                 >
-                  <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#62B67F]" />
+                  <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#62B67F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
                   <span className="text-sm">Aldeia Uka Anamã, Manaus/AM</span>
                 </a>
               </li>
               <li>
                 <a 
                   href="tel:+5592999999999" 
-                  className="flex items-center gap-3 text-white/80 hover:text-[#62B67F] transition-colors duration-300"
+                  className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-[#044217] dark:hover:text-[#62B67F] transition-colors duration-200"
                 >
-                  <Phone className="w-5 h-5 text-[#62B67F]" />
+                  <svg className="w-5 h-5 text-[#62B67F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
                   <span className="text-sm">(92) 9999-9999</span>
                 </a>
               </li>
               <li>
                 <a 
                   href="mailto:contato@iapoam.org.br" 
-                  className="flex items-center gap-3 text-white/80 hover:text-[#62B67F] transition-colors duration-300"
+                  className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-[#044217] dark:hover:text-[#62B67F] transition-colors duration-200"
                 >
-                  <Mail className="w-5 h-5 text-[#62B67F]" />
+                  <svg className="w-5 h-5 text-[#62B67F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
                   <span className="text-sm">contato@iapoam.org.br</span>
                 </a>
               </li>
@@ -190,13 +183,15 @@ export function Footer() {
 
             {/* Legal Links */}
             <div>
-              <h5 className="text-sm font-semibold text-white/70 mb-3">Informações</h5>
+              <h5 className="text-xs font-semibold text-gray-500 dark:text-gray-500 uppercase tracking-wider mb-3">
+                Informações
+              </h5>
               <ul className="space-y-2">
                 {legalLinks.map((link, index) => (
                   <li key={index}>
                     <Link 
                       href={link.href} 
-                      className="text-xs text-white/60 hover:text-white/90 transition-colors duration-300"
+                      className="text-xs text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                     >
                       {link.label}
                     </Link>
@@ -208,24 +203,29 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10"></div>
+        <div className="border-t border-gray-200 dark:border-gray-800"></div>
 
         {/* Bottom Footer */}
         <div className="py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            
             {/* Copyright */}
             <div className="text-center md:text-left">
-              <p className="text-white/70 text-sm">
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
                 © {currentYear} IAPOAM. Todos os direitos reservados.
               </p>
-              <p className="text-white/50 text-xs mt-1">
-                Desenvolvido com <Heart className="w-3 h-3 inline-block text-[#62B67F]" /> para os povos originários
+              <p className="text-gray-500 dark:text-gray-500 text-xs mt-1">
+                Desenvolvido com{" "}
+                <svg className="w-3 h-3 inline-block text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                </svg>{" "}
+                para os povos originários
               </p>
             </div>
 
             {/* Social Media */}
-            <div className="flex items-center gap-2">
-              <span className="text-white/70 text-sm mr-2">Siga-nos:</span>
+            <div className="flex items-center gap-3">
+              <span className="text-gray-600 dark:text-gray-400 text-sm mr-2">Siga-nos:</span>
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -233,7 +233,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className={`flex items-center justify-center w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 hover:scale-110 ${social.hoverColor}`}
+                  className="flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gradient-to-r hover:from-[#044217] hover:to-[#62B67F] hover:text-white rounded-xl transition-all duration-300 hover:scale-110"
                 >
                   {social.icon}
                 </a>
@@ -243,17 +243,19 @@ export function Footer() {
             {/* Back to Top */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="flex items-center gap-2 text-sm text-white/70 hover:text-[#62B67F] transition-colors duration-300 group"
+              className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#044217] dark:hover:text-[#62B67F] transition-colors duration-200 group"
             >
               Voltar ao topo
-              <ExternalLink className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
+              <svg className="w-4 h-4 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+              </svg>
             </button>
           </div>
         </div>
 
         {/* Trust Seal Bar */}
-        <div className="border-t border-white/10 py-6">
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/50">
+        <div className="border-t border-gray-200 dark:border-gray-800 py-6">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500 dark:text-gray-500">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-[#62B67F] rounded-full"></div>
               <span>Organização Sem Fins Lucrativos</span>

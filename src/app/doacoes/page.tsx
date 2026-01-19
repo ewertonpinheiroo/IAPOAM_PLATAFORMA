@@ -47,7 +47,7 @@ export default function Doacoes() {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative py-24 bg-gradient-to-br from-[#044217] to-[#044217]/90 overflow-hidden">
+        <section className="relative py-24 bg-linear-to-br from-[#044217] to-[#044217]/90 overflow-hidden">
           {/* Decorative Background */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#62B67F] rounded-full blur-3xl"></div>
@@ -114,7 +114,7 @@ export default function Doacoes() {
                     }}
                     className={`group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${
                       valorSelecionado === item.valor
-                        ? "bg-gradient-to-br from-[#044217] to-[#044217]/90 text-white shadow-2xl scale-105"
+                        ? "bg-linear-to-br from-[#044217] to-[#044217]/90 text-white shadow-2xl scale-105"
                         : "bg-white text-[#044217] border-2 border-[#DBE89C] hover:border-[#62B67F]"
                     }`}
                   >
@@ -173,7 +173,7 @@ export default function Doacoes() {
               {/* PIX */}
               <Card className="border-2 border-[#DBE89C] hover:border-[#62B67F] transition-all duration-300">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#044217] to-[#044217]/80 rounded-2xl flex items-center justify-center shadow-lg">
+                  <div className="w-14 h-14 bg-linear-to-br from-[#044217] to-[#044217]/80 rounded-2xl flex items-center justify-center shadow-lg">
                     <QrCode className="w-7 h-7 text-white" />
                   </div>
                   <div>
@@ -221,7 +221,7 @@ export default function Doacoes() {
               {/* Depósito Bancário */}
               <Card className="border-2 border-[#DBE89C] hover:border-[#62B67F] transition-all duration-300">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#62B67F] to-[#62B67F]/80 rounded-2xl flex items-center justify-center shadow-lg">
+                  <div className="w-14 h-14 bg-linear-to-br from-[#62B67F] to-[#62B67F]/80 rounded-2xl flex items-center justify-center shadow-lg">
                     <Building2 className="w-7 h-7 text-white" />
                   </div>
                   <div>
@@ -301,7 +301,7 @@ export default function Doacoes() {
                 </div>
 
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#044217]/40 to-[#044217]/30 rounded-2xl flex items-center justify-center">
+                  <div className="w-14 h-14 bg-linear-to-br from-[#044217]/40 to-[#044217]/30 rounded-2xl flex items-center justify-center">
                     <CreditCard className="w-7 h-7 text-[#044217]/50" />
                   </div>
                   <div>
@@ -322,12 +322,12 @@ export default function Doacoes() {
         </section>
 
         {/* Transparência Section */}
-        <section className="py-20 bg-gradient-to-b from-[#E5EEE2] to-white">
+        <section className="py-20 bg-linear-to-b from-[#E5EEE2] to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <Card className="bg-gradient-to-br from-white to-[#E5EEE2] border-2 border-[#62B67F]">
+              <Card className="bg-linear-to-br from-white to-[#E5EEE2] border-2 border-[#62B67F]">
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#044217] to-[#044217]/80 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+                  <div className="w-14 h-14 bg-linear-to-br from-[#044217] to-[#044217]/80 rounded-2xl flex items-center justify-center shadow-lg shrink-0">
                     <Shield className="w-7 h-7 text-white" />
                   </div>
                   <div>

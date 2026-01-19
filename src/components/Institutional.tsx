@@ -1,136 +1,227 @@
 "use client";
 
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import { Heart, Users, Award, Target } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 
 export function Institutional() {
+  const [activeTab, setActiveTab] = useState<"mission" | "founder">("mission");
+
   const highlights = [
     {
-      icon: <Heart className="w-6 h-6" />,
-      title: "Missão",
-      description: "Promover dignidade e direitos",
+      number: "35+",
+      label: "Etnias Atendidas",
+      description: "Em toda a região amazônica"
     },
     {
-      icon: <Users className="w-6 h-6" />,
-      title: "35+ Etnias",
-      description: "Atendidas em toda região",
+      number: "253",
+      label: "Comunidades",
+      description: "Alcançadas com nossos projetos"
     },
     {
-      icon: <Award className="w-6 h-6" />,
-      title: "Reconhecimento",
-      description: "Utilidade Pública Municipal e Estadual",
+      number: "15+",
+      label: "Anos",
+      description: "De história e dedicação"
     },
     {
-      icon: <Target className="w-6 h-6" />,
-      title: "Desde 2011",
-      description: "Transformando vidas",
+      number: "100%",
+      label: "Transparência",
+      description: "Em todas as nossas ações"
     },
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <Badge variant="success" className="mb-4">
-            Quem Somos
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#044217] mb-4">
+          <div className="inline-flex items-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full mb-4">
+            <div className="w-2 h-2 bg-[#62B67F] rounded-full mr-2"></div>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Conheça Nossa História
+            </span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Sobre o IAPOAM
           </h2>
-          <div className="w-24 h-1 bg-[#62B67F] mx-auto rounded-full mb-6"></div>
-          <p className="text-lg text-[#044217]/70 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Uma organização dedicada à defesa dos direitos, inclusão social e preservação cultural
             dos povos indígenas e quilombolas da Amazônia
           </p>
         </div>
 
         {/* Highlights Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {highlights.map((item, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-[#E5EEE2] to-[#DBE89C] rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:border-[#62B67F] dark:hover:border-[#62B67F] hover:shadow-lg transition-all duration-300"
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-white rounded-full text-[#044217] mb-4 shadow-md">
-                {item.icon}
+              <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#044217] to-[#62B67F] mb-2">
+                {item.number}
               </div>
-              <h3 className="font-bold text-[#044217] mb-1">{item.title}</h3>
-              <p className="text-sm text-[#044217]/70">{item.description}</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                {item.label}
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Main Content Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Quem Somos Card */}
-          <Card className="bg-gradient-to-br from-white to-[#E5EEE2] border-l-4 border-l-[#044217]">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-[#044217] rounded-lg flex items-center justify-center">
-                <Users className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-[#044217] mb-2">Quem Somos</h3>
-                <Badge variant="info" className="text-xs">
-                  CNPJ: 13.955.659/0001-43
-                </Badge>
-              </div>
-            </div>
-            <p className="text-[#044217]/80 leading-relaxed mb-4">
-              O Instituto de Apoio aos Povos Originários da Amazônia (IAPOAM) é uma organização
-              apartidária e não religiosa fundada em 15 de fevereiro de 2011.
-            </p>
-            <p className="text-[#044217]/80 leading-relaxed">
-              Liderada pela Cacique Kamila Silva Prestes (etnia Mura), atuamos na defesa dos
-              direitos, inclusão social e preservação cultural dos povos indígenas e quilombolas,
-              promovendo dignidade e autonomia em suas comunidades.
-            </p>
-          </Card>
-
-          {/* Nossa Fundadora Card */}
-          <Card className="bg-gradient-to-br from-white to-[#DBE89C]/30 border-l-4 border-l-[#62B67F]">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-[#62B67F] rounded-lg flex items-center justify-center">
-                <Award className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-[#044217] mb-2">Nossa Fundadora</h3>
-                <Badge variant="success" className="text-xs">
-                  Cacique da Etnia Mura
-                </Badge>
-              </div>
-            </div>
-            <p className="text-[#044217]/80 leading-relaxed mb-4">
-              Kamila Silva Prestes, cacique da etnia Mura, fundou o IAPOAM com o objetivo de
-              promover a inclusão digital, assistência social e preservação cultural das
-              comunidades originárias.
-            </p>
-            <p className="text-[#044217]/80 leading-relaxed">
-              Sua liderança visionária e dedicação incansável inspiram ações transformadoras em
-              toda a região amazônica, fortalecendo as tradições e defendendo os direitos dos povos
-              originários.
-            </p>
-          </Card>
+        {/* Tabs */}
+        <div className="flex justify-center gap-2 mb-12">
+          <button
+            onClick={() => setActiveTab("mission")}
+            className={`px-6 py-3 rounded-xl font-medium transition-all ${
+              activeTab === "mission"
+                ? "bg-gradient-to-r from-[#044217] to-[#62B67F] text-white shadow-lg"
+                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-[#62B67F]"
+            }`}
+          >
+            Quem Somos
+          </button>
+          <button
+            onClick={() => setActiveTab("founder")}
+            className={`px-6 py-3 rounded-xl font-medium transition-all ${
+              activeTab === "founder"
+                ? "bg-gradient-to-r from-[#044217] to-[#62B67F] text-white shadow-lg"
+                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-[#62B67F]"
+            }`}
+          >
+            Nossa Fundadora
+          </button>
         </div>
 
-        {/* Bottom Stats Bar */}
-        <div className="mt-16 bg-gradient-to-r from-[#044217] to-[#044217]/90 rounded-2xl p-8 md:p-12 shadow-xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">15+</div>
-              <div className="text-[#DBE89C] font-medium">Anos de Atuação</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">253</div>
-              <div className="text-[#DBE89C] font-medium">Comunidades Atendidas</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">100%</div>
-              <div className="text-[#DBE89C] font-medium">Compromisso e Transparência</div>
+        {/* Content */}
+        {activeTab === "mission" && (
+          <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 lg:p-12 border border-gray-200 dark:border-gray-700 shadow-xl">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Text Content */}
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                    Quem Somos
+                  </h3>
+                  <div className="inline-flex items-center px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full mb-4">
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                      CNPJ: 13.955.659/0001-43
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+                  <p>
+                    O <span className="font-semibold text-gray-900 dark:text-white">Instituto de Apoio aos Povos Originários da Amazônia (IAPOAM)</span> é uma organização apartidária e não religiosa, fundada em 15 de fevereiro de 2011, com atuação voltada à defesa dos direitos dos povos originários e à preservação da floresta amazônica.
+                  </p>
+                  <p>
+                    O IAPOAM desenvolve projetos e ações em parceria com comunidades, instituições e organizações, promovendo o fortalecimento sociocultural, a proteção territorial, a sustentabilidade ambiental e o respeito aos saberes tradicionais.
+                  </p>
+                  <p>
+                    Com mais de uma década de atuação, o Instituto reafirma seu compromisso com a justiça social, a valorização dos povos indígenas e a manutenção da floresta em pé, contribuindo para um futuro mais justo, equilibrado e sustentável na Amazônia.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stats Cards */}
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-gradient-to-br from-[#044217] to-[#62B67F] rounded-2xl p-6 text-white">
+                  <div className="text-4xl font-bold mb-2">253</div>
+                  <div className="text-sm opacity-90">Comunidades Atendidas</div>
+                </div>
+                <div className="bg-gradient-to-br from-[#62B67F] to-[#044217] rounded-2xl p-6 text-white">
+                  <div className="text-4xl font-bold mb-2">35+</div>
+                  <div className="text-sm opacity-90">Etnias</div>
+                </div>
+                <div className="col-span-2 bg-gray-100 dark:bg-gray-700 rounded-2xl p-6">
+                  <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#044217] to-[#62B67F] mb-2">
+                    15+
+                  </div>
+                  <div className="text-sm text-gray-700 dark:text-gray-300">Anos de Dedicação</div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        )}
+
+        {activeTab === "founder" && (
+          <div className="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-xl">
+            {/* Header Banner */}
+            <div className="bg-gradient-to-r from-[#044217] to-[#62B67F] p-8 lg:p-10">
+              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-2">
+                Nossa Fundadora
+              </h3>
+              <p className="text-white/90 text-lg">Liderança e Inspiração</p>
+            </div>
+
+            {/* Content */}
+            <div className="p-8 lg:p-12">
+              <div className="grid lg:grid-cols-5 gap-10 items-center">
+                {/* Photo */}
+                <div className="lg:col-span-2 flex justify-center">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#62B67F] to-[#044217] rounded-full blur-2xl opacity-20"></div>
+                    <div className="relative w-64 h-64 lg:w-80 lg:h-80">
+                      <Image
+                        src="/images/Kamila_perfil.png"
+                        alt="Kamila Katusawa Mura - Fundadora do IAPOAM"
+                        width={320}
+                        height={320}
+                        className="relative rounded-full border-4 border-white dark:border-gray-700 shadow-2xl object-cover w-full h-full"
+                        priority
+                      />
+                    </div>
+                    <div className="absolute -bottom-4 -right-4 bg-gradient-to-br from-[#62B67F] to-[#044217] text-white px-6 py-3 rounded-2xl shadow-xl border-4 border-white dark:border-gray-800">
+                      <div className="text-2xl font-bold">15 Anos</div>
+                      <div className="text-xs">IAPOAM</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Text */}
+                <div className="lg:col-span-3 space-y-6">
+                  <div>
+                    <h4 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+                      Kamila Katusawa Mura
+                    </h4>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className="px-3 py-1 bg-[#62B67F] text-white text-sm font-medium rounded-full">
+                        Mura
+                      </span>
+                      <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">
+                        Coordenadora Social
+                      </span>
+                      <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">
+                        Gestora Social
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 text-gray-600 dark:text-gray-400">
+                    <p className="text-lg leading-relaxed">
+                      Liderança indígena e gestora social com <span className="font-semibold text-gray-900 dark:text-white">mais de 13 anos de experiência</span> na defesa dos direitos dos povos originários em contexto urbano.
+                    </p>
+                    
+                    <p className="leading-relaxed">
+                      Fundadora e atual Coordenadora Social do IAPOAM, com sólida expertise na articulação de políticas públicas, gestão de Organizações da Sociedade Civil (OSC) e implementação de ações de cidadania.
+                    </p>
+                    
+                    <p className="leading-relaxed">
+                      Atuação estratégica como <span className="font-semibold text-gray-900 dark:text-white">Tuxaua</span>, sendo responsável por marcos históricos de visibilidade étnica e reconhecimento institucional junto a órgãos como o IBGE e conselhos de assistência social (CMAS/SUAS).
+                    </p>
+                  </div>
+
+                  {/* Quote */}
+                  <div className="relative p-6 bg-gradient-to-br from-[#044217] to-[#62B67F] rounded-2xl">
+                    <p className="text-lg lg:text-xl font-medium text-white italic leading-relaxed">
+                      "Fazer o bem: os povos indígenas precisam de oportunidade, renda, inclusão social e direitos para todos."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
